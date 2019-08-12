@@ -1,0 +1,20 @@
+There are two types of machines when we talk about deployment −
+1.Control machine − Machine from where we can manage other machines.
+2.Remote machine − Machines which are handled/controlled by control machine.
+
+There can be multiple remote machines which are handled by one control machine. 
+So, for managing remote machines we have to install Ansible on control machine.
+1.Control Machine Requirements:
+Ansible can be run from any machine with Python 2 (versions 2.6 or 2.7) or Python 3 (versions 3.5 and higher) installed.
+Windows does not support control machine.
+By default, Ansible uses ssh to manage remote machine.
+
+--> sudo apt-get update
+--> sudo apt-get install software-properties-common
+--> sudo apt-add-repository ppa:ansible/ansible
+--> sudo apt-get update 
+--> sudo apt-get install ansible
+--> ansible --version
+
+Installed ansible on JenkinsNew (CONTROL MACHINE).
+
