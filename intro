@@ -1,1 +1,19 @@
+Ansible is simple open source IT engine which automates application deployment, intra service orchestration, cloud provisioning and
+many other IT tools.
+you can create VM --> environment provisioning
+you can install things on top of it --> configuration
+u can also deploy --> deployment
 
+Ansible is not a part of CICD generally it is instead for environment provisioning and then creating ur pipeline.
+But if deployment is involved u can use it in ur pipeline.
+
+Ansible uses playbook to describe automation jobs, and playbook uses very simple language i.e. YAML .
+
+Ansible is designed for multi-tier deployment. Ansible does not manage one system at time, it models IT infrastructure
+by describing all of your systems are interrelated.
+
+After connecting to your nodes, Ansible pushes small programs called as “Ansible MODULES”. 
+Ansible runs that modules on your nodes and removes them when finished. 
+
+Ansible manages your inventory in simple text files (These are the hosts file). Ansible uses the hosts file where one can group the hosts and can control 
+the actions on a specific group in the playbooks.
