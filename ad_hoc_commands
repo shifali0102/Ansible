@@ -1,3 +1,23 @@
 Ad hoc commands are commands which can be run individually to perform quick functions. These commands need not be performed later.
 For example, you have to reboot all your company servers. For this, you will run the Adhoc commands from ‘/usr/bin/ansible’.
 These ad-hoc commands are not used for configuration management and deployment, because these commands are of one time usage.
+
+1. To run reboot for all your company servers in a group, 'abc', in 12 parallel forks −
+--> Ansible abc -a "/sbin/reboot" -f 12
+-->  Ansible abc -a "/sbin/reboot" -f 12 -u username (when u want to pass the username also)
+
+2. You can use the Ad-hoc commands for doing SCP (Secure Copy Protocol) lots of files in parallel on multiple machines.
+2.1  Transferring file to many servers/machines
+--> Ansible abc -m copy -a "src = /etc/yum.conf dest = /tmp/yum.conf"
+2.2 Creating new directory
+--> Ansible abc -m file -a "dest = /path/user1/new mode = 777 owner = user1 group = user1 state = directory"
+2.3  Deleting whole directory and file 
+--> Ansible abc -m file -a "dest = /path/user1/new state = absent"
+2.4 The following command checks if yum package is installed or not, but does not update it.
+--> Ansible abc -m yum -a "name = demo-tomcat-1 state = present"
+2.5 The following command check the package is not installed.
+--> Ansible abc -m yum -a "name = demo-tomcat-1 state = absent" 
+2.6 checks the latest version of package is installed.
+--> Ansible abc -m yum -a "name = demo-tomcat-1 state = latest"
+2.7 Facts can be used for implementing conditional statements in playbook. You can find adhoc information of all your facts through the following Ad-hoc command −
+--> Ansible all -m setup
