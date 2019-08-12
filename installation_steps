@@ -33,6 +33,7 @@ node is Shifalivm
 paste the key here 
 
 Now run "SSH slave ip address(eg:ubuntu@172.5.6.7)" in Master
+this will let u login directly without the password.
 exit -->to logout from slave
 
 when we will exit out of this slave/node we will enter the master 
