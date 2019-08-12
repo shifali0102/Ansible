@@ -1,0 +1,58 @@
+YAML syntax for expressing Ansible playbooks.
+Every YAML file optionally starts with “---” and ends with “...”.
+
+1. key-value pair
+--- #Optional YAML start syntax 
+james: 
+   name: james john 
+   rollNo: 34 
+   div: B 
+   sex: male 
+… #Optional YAML end syntax
+OR 
+James: {name: james john, rollNo: 34, div: B, sex: male}
+
+2. Representing List
+We can also represent List in YAML.
+Every element(member) of list should be written in a new line with same indentation starting with “- “ (- and space).
+---
+countries:  
+   - America 
+   - China 
+   - Canada 
+   - Iceland 
+…
+OR 
+Countries: [‘America’, ‘China’, ‘Canada’, ‘Iceland’] 
+
+---  
+- james: 
+   name: james john 
+   rollNo: 34 
+      div: B 
+   sex: male 
+   likes: 
+      - maths 
+      - physics 
+      - english 
+
+- robert: 
+      name: robert richardson 
+      rollNo: 53 
+      div: B 
+      sex: male 
+   likes: 
+      - biology 
+      - chemistry 
+…  
+
+Some common words related to Ansible.
+Service/Server − A process on the machine that provides the service.
+
+Machine − A physical server, vm(virtual machine) or a container.
+
+Target machine − A machine we are about to configure with Ansible.
+
+Task − An action(run this, delete that) etc managed by Ansible.
+
+Playbook − The yml file where Ansible commands are written and yml is executed on a machine
