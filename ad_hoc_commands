@@ -21,3 +21,11 @@ These ad-hoc commands are not used for configuration management and deployment, 
 --> Ansible abc -m yum -a "name = demo-tomcat-1 state = latest"
 2.7 Facts can be used for implementing conditional statements in playbook. You can find adhoc information of all your facts through the following Ad-hoc command −
 --> Ansible all -m setup
+
+
+the adhoc commands I run:
+First add ur node to the inventory host file 
+then
+-->  ansible web -a /bin/date
+-->  ansible web -m ping
+-->  ansible web -s -m yum -a "name=openssl state=latest"      (permisiion deniederror)  *** ensure a package is updated
