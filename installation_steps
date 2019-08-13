@@ -4,6 +4,7 @@ There are two types of machines when we talk about deployment −
 
 There can be multiple remote machines which are handled by one control machine. 
 So, for managing remote machines we have to install Ansible on control machine.
+
 1.Control Machine Requirements:
 Ansible can be run from any machine with Python 2 (versions 2.6 or 2.7) or Python 3 (versions 3.5 and higher) installed.
 Windows does not support control machine.
@@ -16,8 +17,30 @@ By default, Ansible uses ssh to manage remote machine.
 --> sudo apt-get install ansible
 --> ansible --version
 
+ansible 2.8.3
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/shifali0102/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.15+ (default, Nov 27 2018, 23:36:35) [GCC 7.3.0]
+
 Installed ansible on JenkinsNew (CONTROL MACHINE).
 node is Shifalivm
+
+2. On the managed nodes,
+you need a way to communicate, which is normally ssh. 
+By default this uses sftp. If that’s not available, you can switch to scp in ansible.cfg. 
+You also need Python 2 (version 2.6 or later) or Python 3 (version 3.5 or later).
+
+If you have SELinux enabled on remote nodes, you will also want to install libselinux-python on them before
+using any copy/file/template related functions in Ansible. You can use the yum module or dnf module in Ansible to install 
+this package on remote systems that do not have it.
+
+By default, Ansible uses the python interpreter located at /usr/bin/python to run its modules.
+However, some Linux distributions may only have a Python 3 interpreter installed to /usr/bin/python3 by default.
+On those systems, you may see an error like:
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+
 
  SSH CONNECTION : BETWEEN MASTER/HOST AND NODES 
  ===============
