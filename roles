@@ -1,0 +1,11 @@
+The role is the primary mechanism for breaking a playbook into multiple files.
+ This simplifies writing complex playbooks, and it makes them easier to reuse.
+ Each role is basically limited to a particular functionality or desired output.
+ Roles are not playbooks.
+ Roles are small functionality which can be independently used but have to be used within playbooks.
+ There is no way to directly execute a role. Roles have no explicit setting for which host the role will apply to.
+Creating a New Role:
+The directory structure for roles is essential to create a new role.
+Role Structure:
+Each role is a directory tree in itself. The role name is the directory name within the /roles directory.
+
