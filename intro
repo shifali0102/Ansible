@@ -31,6 +31,7 @@ Playbooks : Contain plays
 plays will have tasks
 tasks will call modules
 Handlers are also there that will run once at the end of ur plays.
+roles : special kind of playbook that are fully self contained 
 sample playbook:
 
 ---
@@ -43,16 +44,16 @@ sample playbook:
      http_port: 80
      max_clients: 200
   
-  tasks: *** each task will have a name and also a margial 
+  tasks: *** each task will have a name and also a margial which tells ansible how to configure the target system
   - name: install httpd
-    yum: name=httpd state=latest
+    yum: name=httpd state=latest **package installation using yum
   - name: write apache config file
-    template: src=srv/httpd.j2 dest=etc/httpd.conf
+    template: src=srv/httpd.j2 dest=etc/httpd.conf ** deployed configuration file using template file any variables in the template will be replaced with the ones in the playbook vars.
     notify:
     - restart apache
   - name: start httpd
-    service: name=httpd state=running
-  handlers:
+    service: name=httpd state=running ** ensure that this service is started
+  handlers:  ** if the configuration file is altered as a part of this playbook run ansible will restart the service once all plays have successfully run 
   - name: restart apache
     service: name=httpd state=restarted
  
@@ -65,4 +66,11 @@ web2-example.com
 [db]
 weba-example.com
 webb-example.com
+
+few commands to run on controller machine(adhoc commands):
+-->  ansible web -a /bin/date
+-->  ansible web -m ping
+-->  ansible web -s -m yum -a "name=openssl state=latest"      (permisiion deniederror)  *** ensure a package is updated
+
+https://www.ansible.com/resources/videos/quick-start-video
 
