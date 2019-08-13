@@ -1,1 +1,36 @@
 ansible-playbook is used for configuration management and deployment.
+Playbooks are the files where Ansible code is written. Playbooks are written in YAML format. 
+YAML stands for Yet Another Markup Language. Playbooks are one of the core features of Ansible and tell Ansible what to execute. 
+They are like a to-do list for Ansible that contains a list of tasks.
+
+Playbooks contain the steps which the user wants to execute on a particular machine. Playbooks are run sequentially. 
+Playbooks are the building blocks for all the use cases of Ansible.
+
+Playbook Structure
+Each playbook is an aggregation of one or more plays in it. Playbooks are structured using Plays. 
+There can be more than one play inside a playbook.
+The function of a play is to map a set of instructions defined against a particular host.
+
+--- 
+   name: install and configure DB
+   hosts: testServer
+   become: yes
+
+   vars: 
+      oracle_db_port_value : 1521
+   
+   tasks:
+   -name: Install the Oracle DB
+      yum: <code to install the DB>
+    
+   -name: Ensure the installed service is enabled and running
+   service:
+      name: <your service name>
+      
+  The Different YAML Tags
+1.  name: Any logical name can be given to the playbook.
+2. hosts: It tells Ansible on which hosts to run the listed tasks.
+One can run the tasks on multiple machines and hence hosts tag can have a group of hosts’ entry as well.
+3. vars: Vars tag lets you define the variables which you can use in your playbook. Usage is similar to variables in any programming language.
+4. tasks: Tasks are a list of actions one needs to perform.Each task internally links to a piece of code called a module. 
+A module that should be executed, and arguments that are required for the module you want to execute.
