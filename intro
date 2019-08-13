@@ -24,4 +24,45 @@ You can install WebLogic/WebSphere in one go on all of your machines with Ansibl
 All you have to do is list out the IP addresses of your nodes in the inventory and write a playbook to install WebLogic/WebSphere.
 Run the playbook from your control machine & it will be installed on all your nodes.
 
+Normal architecture :
+Control machine : need to have ansible installed
+nodes machines
+Playbooks : Contain plays
+plays will have tasks
+tasks will call modules
+Handlers are also there that will run once at the end of ur plays.
+sample playbook:
+
+---
+- name: install and start apache
+  hosts: web  *** specify which inventory group ansible should apply this playbook to
+  remote_user: justin *** which user to use for remote connection
+  become_method: sudo
+  become_user: root ** accessing as a root user
+  vars:  **few variables added to the playbook itself
+     http_port: 80
+     max_clients: 200
+  
+  tasks: *** each task will have a name and also a margial 
+  - name: install httpd
+    yum: name=httpd state=latest
+  - name: write apache config file
+    template: src=srv/httpd.j2 dest=etc/httpd.conf
+    notify:
+    - restart apache
+  - name: start httpd
+    service: name=httpd state=running
+  handlers:
+  - name: restart apache
+    service: name=httpd state=restarted
+ 
+
+Inventory files: list of hosts/machines on which the commands are to be run 
+sample inventory file:
+[web]
+web1-example.com
+web2-example.com
+[db]
+weba-example.com
+webb-example.com
 
