@@ -1,0 +1,8 @@
+The configuration file of ansible:
+cd /etc/ansible
+vi ansible.cfg
+
+The host file location:
+ /etc/ansible/hosts
+ 
+ 
