@@ -18,7 +18,8 @@ Ansible runs that modules on your nodes and removes them when finished.
 Ansible manages your inventory in simple text files (These are the hosts file). Ansible uses the hosts file where one can group the hosts and can control 
 the actions on a specific group in the playbooks.
 
-If you want to install the new version of WebLogic/WebSphere server on all of the machines present in your enterprise, it is not feasible for you to manually go and update each and every machine.
+If you want to install the new version of WebLogic/WebSphere server on all of the machines present in your enterprise, it is not feasible 
+for you to manually go and update each and every machine.
 
 You can install WebLogic/WebSphere in one go on all of your machines with Ansible playbooks and inventory written in the most simple way.
 All you have to do is list out the IP addresses of your nodes in the inventory and write a playbook to install WebLogic/WebSphere.
