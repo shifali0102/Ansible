@@ -72,6 +72,7 @@ few commands to run on controller machine(adhoc commands):
 -->  ansible web -a /bin/date
 -->  ansible web -m ping
 -->  ansible web -s -m yum -a "name=openssl state=latest"      (permisiion deniederror)  *** ensure a package is updated
+--> ansible-playbook ansible-playbook2.yaml ------- to run any ansible playbook
 
 https://www.ansible.com/resources/videos/quick-start-video
 
