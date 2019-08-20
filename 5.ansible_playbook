@@ -26,6 +26,17 @@ The function of a play is to map a set of instructions defined against a particu
    -name: Ensure the installed service is enabled and running
    service:
       name: <your service name>
+****executable playbook 
+
+- hosts: web
+  tasks:
+  - name: ansible create directory example
+    file:
+      path: /tmp/devops_directory
+      state: directory
+      
+ --> ansible-playbook play1.yaml
+ 
       
   The Different YAML Tags
 1.  name: Any logical name can be given to the playbook.
