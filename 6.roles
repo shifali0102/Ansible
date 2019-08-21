@@ -9,3 +9,9 @@ The directory structure for roles is essential to create a new role.
 Role Structure:
 Each role is a directory tree in itself. The role name is the directory name within the /roles directory.
 
+
+--> ansible-galaxy -h 
+--> ansible-galaxy init vivekrole --- this will create a directory structure with 8 directories, 8 files
+Utilizing Roles in Playbook
+This is the code of the playbook we have written for demo purpose. This code is of the playbook vivek_orchestrate.yml.
+We have defined the hosts: tomcat-node and called the two roles – install-tomcat and start-tomcat.
