@@ -1,5 +1,5 @@
 To check if java alreay installed or not 
---> ansible your_host -m command -a 'java -version'
+--> ansible web -m command -a 'java -version'
 
 Attempt1
 - hosts: web
@@ -9,3 +9,21 @@ Attempt1
     become: yes
     become_method: sudo
     
+    https://github.com/inforedaster/ansible-tomcat-ubuntu/blob/master/roles/tomcat7/tasks/main.yml
+    
+At THE END U WILL NEED TO COPY UR WAR FILE INTO TOMCAT SERVER
+https://medium.com/@atultyagi842/ansible-playbook-to-install-tomcat-and-run-application-on-ubuntu-16-04-ad8e5557f117
+- name: copy war file
+  shell: cp ////.war   location pf tomcat/webapps 
+  
+  ATTEMPT2
+  - hosts: web
+  tasks:
+  - name: Install Java 1.8
+    apt: name=openjdk-8-jdk
+    become: yes
+    become_method: sudo
+  - name: Set JAVA_HOME
+    shell: sudo echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> ~/.bashrc
+    become: yes
+    become_method: sudo
