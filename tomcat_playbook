@@ -1,2 +1,11 @@
 To check if java alreay installed or not 
 --> ansible your_host -m command -a 'java -version'
+
+Attempt1
+- hosts: web
+  tasks:
+  - name: Install Java 1.8
+    apt: name=openjdk-8-jdk
+    become: yes
+    become_method: sudo
+    
