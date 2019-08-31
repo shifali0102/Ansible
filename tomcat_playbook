@@ -1,0 +1,2 @@
+To check if java alreay installed or not 
+--> ansible your_host -m command -a 'java -version'
