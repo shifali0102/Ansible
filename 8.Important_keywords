@@ -1,0 +1,2 @@
+1. The ‘register’ keyword: 
+decides what variable to save a result in. The resulting variables can be used in templates, action lines, or when statements. 
