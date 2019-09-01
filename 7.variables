@@ -1,0 +1,29 @@
+- hosts: webservers
+  vars:
+    http_port: 80
+    
+    Facts are information derived from speaking with your remote systems.
+    
+    - debug: var=ansible_facts
+    
+    ansible hostname -m setup
+    If a remotely managed system has an /etc/ansible/facts.d directory, any files in this directory ending in .fact, 
+    can be JSON, INI, or executable files returning JSON, and these can supply local facts in Ansible.
+    For example, assume /etc/ansible/facts.d/preferences.fact contains:
+
+[general]
+asdf=1
+bar=2
+
+ansible <hostname> -m setup -a "filter=ansible_local"
+"ansible_local": {
+        "preferences": {
+            "general": {
+                "asdf" : "1",
+                "bar"  : "2"
+            }
+        }
+ }
+ {{ ansible_local['preferences']['general']['asdf'] }}
+    
+    
